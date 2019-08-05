@@ -18,8 +18,11 @@ const getAllSuccess = data => {
     }
 }
 
-const getDetails = () => {
-    return { type: actionTypes.getDetails }
+const getDetails = (id) => {
+    return {
+        type: actionTypes.getDetails,
+        id: id
+    }
 };
 
 const getDetailsSuccess = data => {
