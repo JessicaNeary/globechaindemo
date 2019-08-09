@@ -1,20 +1,22 @@
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
-const PORT = 3001;
+const routes = require("./routes.js");
+const PORT = 3002;
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json())
 
 const url = "mongodb+srv://Admin:test123@cluster0-3bglg.mongodb.net/test?retryWrites=true&w=majority"
-mongoose.connect(url, { useNewUrlParser: true });
+//
+const db = mongoose.connect(url, { useNewUrlParser: true });
+//
+// db.on("error", console.error.bind(console, "error connecting to database"));
+// db.once("open", () => console.log("database connected successfully"));
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "error connecting to database"));
-db.once("open", () => console.log("database connected successfully"));
-
+app.use("/products", routes);
 
 app.listen(PORT, () => console.log("server listening on", PORT));
