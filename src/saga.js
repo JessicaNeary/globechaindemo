@@ -1,31 +1,30 @@
-import { takeLatest, call, put } from "redux-saga/effects";
-import { actionTypes } from "./actions";
+import { takeLatest, put } from "redux-saga/effects";
+import { actions, actionTypes } from "./actions";
 
-const api = "/"
+// const api = "http://localhost:3002"
 
 function* getAllProducts() {
     try {
-        const data = yield call(api);
-        yield put({ actionTypes.getAllSuccess, data })
+        const data = yield fetch("http://localhost:3002/products/get")
+            .then(res => res.json())
+        yield put(actions.getAllSuccess(data.thumbnails))
     }
     catch (err) {
-        yield put({ actionTypes.getAllFailure })
-        console.log("Error fetching products:", err.message);
+        yield put(actions.getAllFailure(err.message))
     }
 }
-
-function* getProductDetails(action) {
-    try {
-        const details = yield call(api, action.payload.id)
-        yield put({ actionTypes.getDetailsSuccess, details });
-    }
-    catch (err) {
-        yield put({ actionTypes.getDetailsFailure });
-        console.log("Error fetching details", err.message);
-    }
-}
+//
+// function* getProductDetails(action) {
+//     try {
+//         const details = yield call(api, action.payload.id)
+//         yield put(actions.getDetailsSuccess(details));
+//     }
+//     catch (err) {
+//         yield put(actions.getDetailsFailure(err));
+//     }
+// }
 
 export default function* rootSaga() {
     yield takeLatest(actionTypes.getAll, getAllProducts);
-    yield takeLatest(actionType.getDetails, getProductDetails);
+    // yield takeLatest(actionTypes.getDetails, getProductDetails);
 };

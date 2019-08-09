@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     details: {
         id: null,
         thumbnail: "",
-    }
+    },
+    error: null,
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -13,13 +14,27 @@ const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.getAllSuccess:
             return {
                 ...state,
-                products: action.payload
+                products: action.payload,
+                error: null,
             }
         case actionTypes.getDetailsSuccess:
             return {
                 ...state,
-                details: action.payload
+                details: action.payload,
+                error: null,
             }
+        case actionTypes.getDetailsFailure:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case actionTypes.getAllFailure:
+            return {
+                ...state,
+                error: action.payload
+            }
+        default:
+                return state
     }
 
 };

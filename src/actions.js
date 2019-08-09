@@ -7,35 +7,49 @@ const actionTypes = {
     getDetailsFailure: "GET_PRODUCT_DETAILS_FAILURE",
 };
 
-const getAll = () => {
-   return { type: actionTypes.getAll }
-};
+const actions = {
+    getAll: () => {
+        return {type: actionTypes.getAll}
+    },
 
-const getAllSuccess = data => {
-    return {
-        type: actionTypes.getAllSuccess,
-        data
-    }
-}
+    getAllSuccess: data => {
+        return {
+            type: actionTypes.getAllSuccess,
+            payload: data
+        }
+    },
 
-const getDetails = (id) => {
-    return {
-        type: actionTypes.getDetails,
-        id: id
-    }
-};
+    getDetails: (id) => {
+        return {
+            type: actionTypes.getDetails,
+            id: id
+        }
+    },
 
-const getDetailsSuccess = data => {
-    return {
-        type: actionTypes.getDetailsSuccess,
-        data
+    getDetailsSuccess: data => {
+        return {
+            type: actionTypes.getDetailsSuccess,
+            payload: data
+        }
+    },
+
+
+    getAllFailure: error => {
+        return {
+            type: actionTypes.getAllFailure,
+            error
+        }
+    },
+
+    getDetailsFailure: error => {
+        return {
+            type: actionTypes.getDetailsFailure,
+            error
+        }
     }
 }
 
 export {
     actionTypes,
-    getAll,
-    getAllSuccess,
-    getDetails,
-    getDetailsSuccess
+    actions,
 }

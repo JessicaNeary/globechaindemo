@@ -27,12 +27,14 @@ const mockProducts = [
 ]
 
 class Products extends Component {
+    componentDidMount() {
+        this.props.getProducts();
+    }
     openDetails = () => id => {
-        // this.props.getDetails(id);
-        console.log("opening", id);
+        this.props.getDetails(id);
     }
     render() {
-        const productList = mockProducts;
+        const productList = this.props.products
         return (
             <div>
                 <div>Products</div>
