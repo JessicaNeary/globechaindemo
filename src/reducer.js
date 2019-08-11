@@ -3,8 +3,7 @@ import { actionTypes } from "./actions";
 const INITIAL_STATE = {
     products: [],
     details: {
-        id: null,
-        thumbnail: "",
+        _id: null,
     },
     error: null,
 }

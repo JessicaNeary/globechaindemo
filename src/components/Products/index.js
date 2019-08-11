@@ -39,7 +39,7 @@ class Products extends Component {
             <div>
                 <div>Products</div>
                 {productList[0] && productList.map(i => (
-                    <Thumbnail key={i.id} onClick={this.openDetails(i.id)} product={i} />
+                    <Thumbnail key={i._id} onClick={this.openDetails(i._id)} product={i} />
                 ))
                 }
             </div>

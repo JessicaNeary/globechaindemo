@@ -5,7 +5,7 @@ import { actions, actionTypes } from "./actions";
 
 function* getAllProducts() {
     try {
-        const data = yield fetch("http://localhost:3002/products/get")
+        const data = yield fetch("http://localhost:3002/products")
             .then(res => res.json())
         yield put(actions.getAllSuccess(data.thumbnails))
     }
