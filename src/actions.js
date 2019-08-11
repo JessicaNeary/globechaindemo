@@ -22,7 +22,9 @@ const actions = {
     getDetails: (id) => {
         return {
             type: actionTypes.getDetails,
-            id: id
+            payload: {
+                id: id
+            }
         }
     },
 

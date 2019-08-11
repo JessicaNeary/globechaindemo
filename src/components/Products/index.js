@@ -30,7 +30,7 @@ class Products extends Component {
     componentDidMount() {
         this.props.getProducts();
     }
-    openDetails = () => id => {
+    openDetails = id => () => {
         this.props.getDetails(id);
     }
     render() {
@@ -39,7 +39,7 @@ class Products extends Component {
             <div>
                 <div>Products</div>
                 {productList[0] && productList.map(i => (
-                    <Thumbnail key={i._id} onClick={this.openDetails(i._id)} product={i} />
+                    <Thumbnail key={i._id} onClick={this.openDetails} product={i} />
                 ))
                 }
             </div>
@@ -57,7 +57,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         getProducts: bindActionCreators(actions.getAll, dispatch),
-        getDetails: (id) => bindActionCreators(actions.getDetails, dispatch)
+        getDetails: (id) => bindActionCreators(actions.getDetails, dispatch)(id),
     }
 }
 

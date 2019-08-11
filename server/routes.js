@@ -49,7 +49,7 @@ router.delete("/clearAll", (req, res) => {
 router.get("/details/:id", (req, res) => {
     Details.findById(req.params.id).exec()
         .then(result => {
-            res.json({ success: true, details: result })
+            res.status(200).json({ success: true, details: result })
         })
         .catch(err => {
             res.json({success: false, error: err });
