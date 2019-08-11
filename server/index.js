@@ -11,11 +11,7 @@ app.use(cors());
 app.use(bodyParser.json())
 
 const url = "mongodb+srv://Admin:test123@cluster0-3bglg.mongodb.net/test?retryWrites=true&w=majority"
-//
 const db = mongoose.connect(url, { useNewUrlParser: true });
-//
-// db.on("error", console.error.bind(console, "error connecting to database"));
-// db.once("open", () => console.log("database connected successfully"));
 
 app.use("/products", routes);
 
