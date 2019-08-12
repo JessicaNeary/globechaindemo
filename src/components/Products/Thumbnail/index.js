@@ -10,6 +10,6 @@ const Thumbnail = ({ product, onClick }) => (
     </ThumbnailContainer>
 );
 
-{/*<Image src={`data:image/jpeg;base64,${product.image}`} />*/}
+/*<Image src={`data:image/jpeg;base64,${product.image}`} />*/
 
 export default Thumbnail

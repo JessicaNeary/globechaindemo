@@ -26,4 +26,5 @@ export const Arrow = styled(ArrowSvg)`
 export const Cross = styled(CrossSvg)`
     fill: #c2c2c2;
     width: 25px;
+    cursor: pointer;
 `;

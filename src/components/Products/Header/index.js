@@ -6,7 +6,7 @@ const Header = ({ currentProduct, close }) => (
     <HeaderContainer>
         <Title>{ currentProduct || "Guitars" }</Title>
         { currentProduct ?
-            <Cross close={close} /> :
+            <Cross onClick={close} /> :
             <Arrow />
         }
     </HeaderContainer>

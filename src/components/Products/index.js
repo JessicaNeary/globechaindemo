@@ -6,7 +6,7 @@ import { actions } from "../../actions";
 import Thumbnail from "./Thumbnail";
 import Details from "./Details";
 import Header from "./Header";
-import { Body } from "./Products.style.js";
+import { Page, Body } from "./Products.style.js";
 
 
 const mockDetails =
@@ -24,13 +24,13 @@ const mockDetails =
 const mockProducts = [
     {
         _id: "00001",
-        image: "../../images/product_1.jpg",
+        image: "../../../images/product_1.jpg",
         name: "Product Title",
         price: 329,
     },
     {
         _id: "00002",
-        image: "../../../../images/product_2.jpg",
+        image: "../../../images/product_2.jpg",
         name: "Product Title",
         price: 229,
     },
@@ -51,28 +51,30 @@ class Products extends Component {
     }
     openDetails = item => () => {
         this.props.getDetails(item._id);
-        this.setState({ showDetails: item.name });
+        this.setState({ showDetails: item });
     }
     closeDetails = () => {
         this.setState({ showDetails: null });
     }
     render() {
         const productList = this.props.products;
+        const details = this.state.showDetails
         return (
-            <div>
+            <Page>
                 <Header
-                    currentProduct={this.state.showDetails}
+                    currentProduct={details && details.name}
+                    close={this.closeDetails}
                 />
                 <Body>
-                { this.state.showDetails &&
-                    <Details {...this.props.details} />
+                { details &&
+                    <Details {...this.props.details} {...details} />
                 }
                 {productList[0] && productList.map(i => (
                     <Thumbnail key={i._id} onClick={this.openDetails} product={i} />
                 ))
                 }
                 </Body>
-            </div>
+            </Page>
         )
     }
 }

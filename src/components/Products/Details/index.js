@@ -5,13 +5,20 @@ import {
     Description,
     Image,
     Attributes,
-    Item
+    Item,
+    Button
 } from "./Details.style";
 
-const Details = ({ description, attributes }) => (
+const Details = ({ description, name, image, attributes }) => (
     <DetailsContainer>
-        Details
+        <Image src={image} />
         <Description>{description}</Description>
+        <Attributes>
+            { attributes.map((item, index) => (
+                <Item key={index}>{item}</Item>
+            ))}
+        </Attributes>
+        <Button>BUY NOW</Button>
     </DetailsContainer>
 );
 
