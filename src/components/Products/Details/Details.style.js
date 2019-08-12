@@ -1,10 +1,26 @@
 import styled from "styled-components";
 
-export const DetailsContainer = styled.div`
+import posed from "react-pose";
+
+const EnterAnimation = posed.div({
+    exit: {
+        height: "0px",
+        top: "100vh",
+        delay: 100,
+        transition: {
+            duration: 300
+        }
+    },
+    enter: {
+        height: "calc(100vh - 75px)",
+        top: "75px"
+    }
+})
+
+export const DetailsContainer = styled(EnterAnimation)`
     width: 100%;
-    height: calc(100vh - 75px);
     position: absolute;
-    top: 75px;
+    bottom: 0;
     left: 0;
     background: white;
     color: #707070;
@@ -20,7 +36,7 @@ export const Image = styled.img`
 export const Description = styled.div`
     font-size: 14px;
     font-weight: 500;
-    padding: 0 40px 10px;
+    padding: 0 40px;
     height: 100%;
 `;
 
@@ -32,7 +48,20 @@ export const Item = styled.p`
     font-size: 12px;
 `;
 
-export const Button = styled.button`
+const ButtonFade = posed.button({
+    enter: {
+        opacity: 1,
+        delay: 200
+    },
+    exit: {
+        opacity: 0,
+        tranduration: {
+            duration: 100
+        }
+    }
+})
+
+export const Button = styled(ButtonFade)`
     width: 125px;
     height: 40px;
     border-radius: 20px;
@@ -42,7 +71,7 @@ export const Button = styled.button`
     font-size: 15px;
     font-weight: 600;
     position: absolute;
-    right: 45px;
+    right: 40px;
     bottom: 45px;
     cursor: pointer;
 `;

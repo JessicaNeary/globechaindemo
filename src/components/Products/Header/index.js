@@ -1,14 +1,31 @@
 import React from "react";
 
-import { HeaderContainer, Title, Arrow, Cross } from "./Header.style";
+
+import {
+    HeaderContainer,
+    Title,
+    Arrow,
+    Cross,
+    IconTransition,
+    Transition
+} from "./Header.style";
 
 const Header = ({ currentProduct, close }) => (
     <HeaderContainer>
-        <Title>{ currentProduct || "Guitars" }</Title>
+        <Title>
+            <Transition pose={currentProduct ? "in" : "down"}>
+                {currentProduct}
+            </Transition>
+            <Transition pose={!currentProduct ? "in" : "up"}>
+                Guitars
+            </Transition>
+        </Title>
+        <IconTransition pose={currentProduct ? "up" : "down"}>
         { currentProduct ?
             <Cross onClick={close} /> :
             <Arrow />
         }
+        </IconTransition>
     </HeaderContainer>
 )
 

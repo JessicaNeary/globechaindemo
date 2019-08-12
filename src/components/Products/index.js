@@ -66,9 +66,7 @@ class Products extends Component {
                     close={this.closeDetails}
                 />
                 <Body>
-                { details &&
-                    <Details {...this.props.details} {...details} />
-                }
+                <Details {...this.props.details} {...details} />
                 {productList[0] && productList.map(i => (
                     <Thumbnail key={i._id} onClick={this.openDetails} product={i} />
                 ))
