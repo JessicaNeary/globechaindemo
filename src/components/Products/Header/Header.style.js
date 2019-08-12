@@ -7,11 +7,11 @@ export const HeaderContainer = styled.div`
     width: 100%;
     background: #000000;
     color: #c2c2c2;
-    padding: 20px 15px;
+    padding: 1.25em 0.938em;
     display: flex;
     justify-content: space-between;
     position: absolute;
-    height: 75px;
+    height: 4.688em;
     top: 0;
     overflow: hidden;
 `;
@@ -20,7 +20,7 @@ export const HeaderContainer = styled.div`
 export const Transition = posed.div({
     up: {
         transition: { ease: "easeInOut" },
-        y: "-80px",
+        y: "-5em",
         opacity: 0
     },
     in: {
@@ -30,14 +30,14 @@ export const Transition = posed.div({
     },
     down: {
         transition: { ease: "easeInOut" },
-        y: "80px",
+        y: "5em",
         opacity: 0
     }
 });
 
 export const Title = styled.div`
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 1.5em;
 `;
 
 
@@ -51,14 +51,14 @@ export const IconTransition = posed.div({
 });
 
 export const Arrow = styled(ArrowSvg)`
-    width: 25px;
+    width: 1.563em;
     fill: #c2c2c2;
-    padding: 10px 0;
+    padding: 0.625em 0;
 `;
 
 export const Cross = styled(CrossSvg)`
     fill: #c2c2c2;
-    width: 25px;
+    width: 1.563em;
     cursor: pointer;
-    padding: 5px 0;
+    padding: 0.313em 0;
 `;

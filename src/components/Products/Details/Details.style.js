@@ -12,8 +12,8 @@ const EnterAnimation = posed.div({
         }
     },
     enter: {
-        height: "calc(100vh - 75px)",
-        top: "75px"
+        height: "calc(100vh - 4.688em)",
+        top: "4.688em"
     }
 })
 
@@ -29,23 +29,22 @@ export const DetailsContainer = styled(EnterAnimation)`
 `;
 
 export const Image = styled.img`
-    min-height: 475px;
+    height: 100%;
     min-width: 100%;
 `;
 
 export const Description = styled.div`
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: 500;
-    padding: 0 40px;
-    height: 100%;
+    padding: 0 2.5em;
 `;
 
 export const Attributes = styled.div`
-    padding: 10px 40px;
+    padding: 0.625em 2.5em;
 `;
 
 export const Item = styled.p`
-    font-size: 12px;
+    font-size: 0.75em;
 `;
 
 const ButtonFade = posed.button({
@@ -62,16 +61,16 @@ const ButtonFade = posed.button({
 })
 
 export const Button = styled(ButtonFade)`
-    width: 125px;
-    height: 40px;
-    border-radius: 20px;
+    width: 7.813em;
+    height: 2.5em;
+    border-radius: 1.25em;
     border: 2px solid #0A0711;
-    background: #A1DFE4;
+    background: #6CF4FF;
     color: #0A0711;
-    font-size: 15px;
+    font-size: 0.938em;
     font-weight: 600;
     position: absolute;
-    right: 40px;
-    bottom: 45px;
+    right: 2.5em;
+    bottom: 2.813em;
     cursor: pointer;
 `;

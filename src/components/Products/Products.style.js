@@ -8,10 +8,10 @@ export const Page = styled.div`
 `
 
 export const Body = styled.div`
-    margin-top: 75px;
+    margin-top: 4.688em;
     width: 100vw;
     height: 100%;
     overflow-y: auto;
-    padding: 80px 20px;
-    margin-bottom: 30px;
+    padding: 5em 1.25em;
+    margin-bottom: 1.875em;
 `;
