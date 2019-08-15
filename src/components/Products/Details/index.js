@@ -12,9 +12,9 @@ import { PoseGroup } from "react-pose";
 
 const Details = ({ description, name, image, attributes }) => (
     <PoseGroup>
-        {name &&
+        {name && attributes &&
         <DetailsContainer key="details" pose={name ? "enter" : "exit"}>
-            <Image src={image}/>
+            <Image src={`data:image/jpeg;base64,${image}`}/>
             <Description>{description}</Description>
             <Attributes>
                 {attributes.map((item, index) => (

@@ -8,40 +8,6 @@ import Details from "./Details";
 import Header from "./Header";
 import { Page, Body } from "./Products.style.js";
 
-
-const mockDetails =
-    {
-        _id: "00001",
-        description: "Spectacularly beautiful quilted maple top. The PE-480 offers a broad distinction and excellent playability achieved with the advantage of a thinner body and lighter weight.\nThe heel-less cutaway neck joint and contoured back are also distinctive points the PE series offering.",
-        attributes: [
-            "Fingerboard: Techwood",
-            "Frets: 22F",
-            "Scale: 628mm",
-            "Pickups: “CPH-1C” x 2"
-        ]
-    }
-
-const mockProducts = [
-    {
-        _id: "00001",
-        image: "../../../images/product_1.jpg",
-        name: "Product Title",
-        price: 329,
-    },
-    {
-        _id: "00002",
-        image: "../../../images/product_2.jpg",
-        name: "Product Title",
-        price: 229,
-    },
-    {
-        _id: "00003",
-        image: "../../../images/product_3.jpg",
-        name: "Product Title",
-        price: 479,
-    }
-]
-
 class Products extends Component {
     state = {
         showDetails: null,
@@ -79,8 +45,8 @@ class Products extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        products: mockProducts,
-        details: mockDetails,
+        products: state.products,
+        details: state.details,
     }
 }
 

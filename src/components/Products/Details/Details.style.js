@@ -29,8 +29,9 @@ export const DetailsContainer = styled(EnterAnimation)`
 `;
 
 export const Image = styled.img`
-    height: 100%;
-    min-width: 100%;
+    height: calc(100% - 16em);
+    padding: 0 20px;
+    object-fit: cover;
 `;
 
 export const Description = styled.div`
@@ -54,7 +55,7 @@ const ButtonFade = posed.button({
     },
     exit: {
         opacity: 0,
-        tranduration: {
+        transition: {
             duration: 100
         }
     }

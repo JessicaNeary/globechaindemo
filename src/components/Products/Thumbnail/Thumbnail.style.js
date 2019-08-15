@@ -10,10 +10,10 @@ export const ThumbnailContainer = styled.div`
     align-items: center;
     padding: 1.875em 0;
     margin-bottom: 1.563em;
+    cursor: pointer;
 `;
 
 export const Image = styled.img`
-    width: 21.25em;
     height: 19.375em;
 `;
 
